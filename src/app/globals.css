@@ -1,66 +1,96 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0b1020;
-  color: #e7ecff;
-}
+const metrics = [
+  { label: "Active Divisions", value: "21", trend: "+3 this cycle" },
+  { label: "Policy Stance", value: "98.4%", trend: "Aligned" },
+  { label: "Operational Health", value: "A+", trend: "Stable" },
+  { label: "Directives Issued", value: "14", trend: "7 pending review" },
+];
 
-* {
-  box-sizing: border-box;
-}
+const divisions = [
+  { name: "Executive Administration", summary: "Governance, oversight, and executive direction." },
+  { name: "Strategy and Planning", summary: "Long-range strategic alignment and execution plans." },
+  { name: "Finance and Resourcing", summary: "Capital deployment, resource tracking, and funding oversight." },
+  { name: "Security and Risk", summary: "Threat analysis, resilience planning, and control validation." },
+  { name: "Operations and Infrastructure", summary: "Core systems reliability and mission support operations." },
+  { name: "Policy and Compliance", summary: "Standards enforcement and executive accountability controls." },
+  { name: "Communications and Coordination", summary: "Cross-division synchronization and executive messaging." },
+];
 
-.page-shell {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 24px 120px;
-}
+const directives = [
+  "Directive 01 — Operational Review and Tiered Risk Assessment",
+  "Directive 02 — Governance Audit Alignment",
+  "Directive 03 — Cross-Division Coordination Standard",
+];
 
-.hero {
-  margin-bottom: 40px;
-}
+export default function HomePage() {
+  return (
+    <main className="page-shell">
+      <header className="topbar">
+        <div className="brand-wrap">
+          <div className="brand-mark">BA</div>
+          <div>
+            <div className="brand-name">Beast3</div>
+            <div className="brand-subtitle">Executive Administration</div>
+          </div>
+        </div>
+        <button className="primary-button">Executive Review</button>
+      </header>
 
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #8aa4ff;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
+      <section className="hero-panel">
+        <div>
+          <p className="eyebrow">Operational Command Layer</p>
+          <h1>Executive Administration Division</h1>
+          <p className="subtitle">
+            Strategic oversight, regulatory fidelity, and policy-driven operations for the Beast3 ecosystem.
+          </p>
+        </div>
+        <div className="status-box">
+          <span className="status-label">System Status</span>
+          <strong>Online</strong>
+          <small>All governance channels synchronized</small>
+        </div>
+      </section>
 
-.hero h1 {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  margin: 0 0 16px;
-}
+      <section className="metrics-grid">
+        {metrics.map((metric) => (
+          <article key={metric.label} className="metric-card">
+            <span>{metric.label}</span>
+            <strong>{metric.value}</strong>
+            <em>{metric.trend}</em>
+          </article>
+        ))}
+      </section>
 
-.subtitle {
-  font-size: 1.1rem;
-  max-width: 700px;
-  line-height: 1.6;
-  color: #c9d3f8;
-}
+      <section className="content-grid">
+        <div className="panel">
+          <div className="panel-header">
+            <h2>Division Overview</h2>
+            <span>Live Alignment</span>
+          </div>
+          <div className="division-list">
+            {divisions.map((division) => (
+              <div key={division.name} className="division-item">
+                <div className="dot" />
+                <div>
+                  <h3>{division.name}</h3>
+                  <p>{division.summary}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 22px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.card h2 {
-  margin-top: 0;
-  font-size: 1.1rem;
-}
-
-.card p {
-  color: #d0d8ff;
-  line-height: 1.55;
-  margin-bottom: 0;
+        <aside className="panel">
+          <div className="panel-header">
+            <h2>Current Directives</h2>
+            <span>Priority</span>
+          </div>
+          <ul className="directive-list">
+            {directives.map((directive) => (
+              <li key={directive}>{directive}</li>
+            ))}
+          </ul>
+        </aside>
+      </section>
+    </main>
+  );
 }
