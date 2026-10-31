@@ -20,6 +20,8 @@ export default function DirectivesPage() {
           <a href="/">Overview</a>
           <a href="/policies">Policies</a>
           <a href="/directives">Directives</a>
+          <a href="/strategy">Strategy</a>
+          <a href="/audit">Audit</a>
         </nav>
       </header>
 

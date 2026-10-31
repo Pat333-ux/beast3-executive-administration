@@ -26,6 +26,7 @@ const strategicObjectives = [
   { name: "Civic Integrity Framework", owner: "Executive Council", status: "In Progress" },
   { name: "Resilience Expansion", owner: "Security & Risk", status: "Reviewed" },
   { name: "Operational Harmonization", owner: "Operations", status: "On Track" },
+  { name: "Strategic Resource Allocation", owner: "Finance", status: "Resolved" },
 ];
 
 export default function HomePage() {
@@ -43,6 +44,8 @@ export default function HomePage() {
           <a href="/">Overview</a>
           <a href="/policies">Policies</a>
           <a href="/directives">Directives</a>
+          <a href="/strategy">Strategy</a>
+          <a href="/audit">Audit</a>
         </nav>
         <button className="primary-button">Executive Review</button>
       </header>
