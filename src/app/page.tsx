@@ -1,31 +1,125 @@
+const metrics = [
+  { label: "Active Divisions", value: "21", trend: "+3 this cycle" },
+  { label: "Policy Alignment", value: "98.4%", trend: "Fully aligned" },
+  { label: "Operational Health", value: "A+", trend: "Stable" },
+  { label: "Directives Issued", value: "14", trend: "7 pending review" },
+];
+
 const divisions = [
-  "Executive Administration",
-  "Strategy and Planning",
-  "Finance and Resourcing",
-  "Security and Risk",
-  "Operations and Infrastructure",
-  "Policy and Compliance",
-  "Communications and Coordination",
+  { name: "Executive Administration", summary: "Governance, oversight, and executive direction." },
+  { name: "Strategy and Planning", summary: "Long-range strategic alignment and execution plans." },
+  { name: "Finance and Resourcing", summary: "Capital deployment, resource tracking, and funding oversight." },
+  { name: "Security and Risk", summary: "Threat analysis, resilience planning, and control validation." },
+  { name: "Operations and Infrastructure", summary: "Core systems reliability and mission support operations." },
+  { name: "Policy and Compliance", summary: "Standards enforcement and executive accountability controls." },
+  { name: "Communications and Coordination", summary: "Cross-division synchronization and executive messaging." },
+];
+
+const directives = [
+  "Directive 01 — Operational Review and Tiered Risk Assessment",
+  "Directive 02 — Governance Audit Alignment",
+  "Directive 03 — Cross-Division Coordination Standard",
+  "Directive 04 — Strategic Resilience Planning",
+];
+
+const strategicObjectives = [
+  { name: "Civic Integrity Framework", owner: "Executive Council", status: "In Progress" },
+  { name: "Resilience Expansion", owner: "Security & Risk", status: "Reviewed" },
+  { name: "Operational Harmonization", owner: "Operations", status: "On Track" },
 ];
 
 export default function HomePage() {
   return (
     <main className="page-shell">
-      <section className="hero">
-        <p className="eyebrow">Beast3 • Governance Layer</p>
-        <h1>Executive Administration Division</h1>
-        <p className="subtitle">
-          Strategic oversight, policy integrity, and executive operations for the Beast3 ecosystem.
-        </p>
+      <header className="topbar">
+        <div className="brand-wrap">
+          <div className="brand-mark">BA</div>
+          <div>
+            <div className="brand-name">Beast3</div>
+            <div className="brand-subtitle">Executive Administration</div>
+          </div>
+        </div>
+        <nav className="topnav" aria-label="Main navigation">
+          <a href="/">Overview</a>
+          <a href="/policies">Policies</a>
+          <a href="/directives">Directives</a>
+        </nav>
+        <button className="primary-button">Executive Review</button>
+      </header>
+
+      <section className="hero-panel">
+        <div>
+          <p className="eyebrow">Operational Command Layer</p>
+          <h1>Executive Administration Division</h1>
+          <p className="subtitle">
+            Strategic oversight, regulatory fidelity, and policy-driven operations for the Beast3 ecosystem.
+          </p>
+        </div>
+        <div className="status-box">
+          <span className="status-label">System Status</span>
+          <strong>Online</strong>
+          <small>All governance channels synchronized</small>
+        </div>
       </section>
 
-      <section className="card-grid">
-        {divisions.map((division) => (
-          <article key={division} className="card">
-            <h2>{division}</h2>
-            <p>Operationally aligned and managed through the executive governance framework.</p>
+      <section className="metrics-grid">
+        {metrics.map((metric) => (
+          <article key={metric.label} className="metric-card">
+            <span>{metric.label}</span>
+            <strong>{metric.value}</strong>
+            <em>{metric.trend}</em>
           </article>
         ))}
+      </section>
+
+      <section className="content-grid">
+        <div className="panel">
+          <div className="panel-header">
+            <h2>Division Overview</h2>
+            <span>Live Alignment</span>
+          </div>
+          <div className="division-list">
+            {divisions.map((division) => (
+              <div key={division.name} className="division-item">
+                <div className="dot" />
+                <div>
+                  <h3>{division.name}</h3>
+                  <p>{division.summary}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <aside className="panel">
+          <div className="panel-header">
+            <h2>Current Directives</h2>
+            <span>Priority</span>
+          </div>
+          <ul className="directive-list">
+            {directives.map((directive) => (
+              <li key={directive}>{directive}</li>
+            ))}
+          </ul>
+        </aside>
+      </section>
+
+      <section className="panel panel-full">
+        <div className="panel-header">
+          <h2>Strategic Objectives</h2>
+          <span>Board View</span>
+        </div>
+        <div className="objective-grid">
+          {strategicObjectives.map((objective) => (
+            <div key={objective.name} className="objective-card">
+              <h3>{objective.name}</h3>
+              <div className="objective-meta">
+                <span>{objective.owner}</span>
+                <strong>{objective.status}</strong>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );

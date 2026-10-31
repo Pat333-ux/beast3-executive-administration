@@ -1,96 +1,354 @@
-const metrics = [
-  { label: "Active Divisions", value: "21", trend: "+3 this cycle" },
-  { label: "Policy Stance", value: "98.4%", trend: "Aligned" },
-  { label: "Operational Health", value: "A+", trend: "Stable" },
-  { label: "Directives Issued", value: "14", trend: "7 pending review" },
-];
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
 
-const divisions = [
-  { name: "Executive Administration", summary: "Governance, oversight, and executive direction." },
-  { name: "Strategy and Planning", summary: "Long-range strategic alignment and execution plans." },
-  { name: "Finance and Resourcing", summary: "Capital deployment, resource tracking, and funding oversight." },
-  { name: "Security and Risk", summary: "Threat analysis, resilience planning, and control validation." },
-  { name: "Operations and Infrastructure", summary: "Core systems reliability and mission support operations." },
-  { name: "Policy and Compliance", summary: "Standards enforcement and executive accountability controls." },
-  { name: "Communications and Coordination", summary: "Cross-division synchronization and executive messaging." },
-];
+.inner-page {
+  padding-top: 28px;
+}
 
-const directives = [
-  "Directive 01 — Operational Review and Tiered Risk Assessment",
-  "Directive 02 — Governance Audit Alignment",
-  "Directive 03 — Cross-Division Coordination Standard",
-];
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 28px;
+}
 
-export default function HomePage() {
-  return (
-    <main className="page-shell">
-      <header className="topbar">
-        <div className="brand-wrap">
-          <div className="brand-mark">BA</div>
-          <div>
-            <div className="brand-name">Beast3</div>
-            <div className="brand-subtitle">Executive Administration</div>
-          </div>
-        </div>
-        <button className="primary-button">Executive Review</button>
-      </header>
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
 
-      <section className="hero-panel">
-        <div>
-          <p className="eyebrow">Operational Command Layer</p>
-          <h1>Executive Administration Division</h1>
-          <p className="subtitle">
-            Strategic oversight, regulatory fidelity, and policy-driven operations for the Beast3 ecosystem.
-          </p>
-        </div>
-        <div className="status-box">
-          <span className="status-label">System Status</span>
-          <strong>Online</strong>
-          <small>All governance channels synchronized</small>
-        </div>
-      </section>
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #8aa4ff, #6ce0e0);
+  color: #081120;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
 
-      <section className="metrics-grid">
-        {metrics.map((metric) => (
-          <article key={metric.label} className="metric-card">
-            <span>{metric.label}</span>
-            <strong>{metric.value}</strong>
-            <em>{metric.trend}</em>
-          </article>
-        ))}
-      </section>
+.brand-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
 
-      <section className="content-grid">
-        <div className="panel">
-          <div className="panel-header">
-            <h2>Division Overview</h2>
-            <span>Live Alignment</span>
-          </div>
-          <div className="division-list">
-            {divisions.map((division) => (
-              <div key={division.name} className="division-item">
-                <div className="dot" />
-                <div>
-                  <h3>{division.name}</h3>
-                  <p>{division.summary}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+.brand-subtitle {
+  color: #a9b7da;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
-        <aside className="panel">
-          <div className="panel-header">
-            <h2>Current Directives</h2>
-            <span>Priority</span>
-          </div>
-          <ul className="directive-list">
-            {directives.map((directive) => (
-              <li key={directive}>{directive}</li>
-            ))}
-          </ul>
-        </aside>
-      </section>
-    </main>
-  );
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.topnav a {
+  color: #dfe8ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #8aa4ff, #5fe4d0);
+  color: #07101d;
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hero-panel {
+  display: grid;
+  grid-template-columns: 1.5fr 0.75fr;
+  gap: 20px;
+  background: linear-gradient(135deg, rgba(26, 34, 59, 0.95), rgba(16, 24, 41, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 30px 28px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
+}
+
+.eyebrow {
+  color: #8aa4ff;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  margin-bottom: 12px;
+}
+
+.hero-panel h1 {
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  margin: 0 0 12px;
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 0;
+  color: #d4dcff;
+  max-width: 680px;
+  line-height: 1.65;
+}
+
+.status-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.status-label {
+  color: #9fb3e8;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+}
+
+.status-box strong {
+  font-size: 2.1rem;
+  margin: 10px 0 6px;
+  color: #5fe4d0;
+}
+
+.status-box small {
+  color: #dfe7ff;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 26px 0 28px;
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-card span {
+  color: #c0cdef;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.metric-card strong {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.metric-card em {
+  color: #7fe8d2;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 0.9fr;
+  gap: 22px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 22px 20px;
+}
+
+.panel-full {
+  margin-top: 26px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.panel-header span {
+  color: #8aa4ff;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.division-list {
+  display: grid;
+  gap: 14px;
+}
+
+.division-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.division-item:last-child {
+  border-bottom: none;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8aa4ff, #4fe5cf);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.division-item h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.division-item p {
+  margin: 0;
+  color: #d1d9f6;
+  line-height: 1.55;
+}
+
+.directive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.directive-list li {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 14px;
+  color: #e8edff;
+  line-height: 1.5;
+}
+
+.objective-grid,
+.directive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.objective-card,
+.directive-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.objective-card h3,
+.directive-card h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.objective-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #dfe8ff;
+}
+
+.objective-meta strong,
+.status-pill {
+  background: rgba(143, 199, 255, 0.12);
+  color: #bce1ff;
+  border: 1px solid rgba(143, 199, 255, 0.22);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.77rem;
+  display: inline-block;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+th {
+  color: #b7c7f1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #081120;
+  color: #edf2ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .hero-panel,
+  .content-grid,
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topnav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-panel {
+    padding: 20px 18px;
+  }
 }
